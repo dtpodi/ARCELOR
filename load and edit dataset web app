@@ -1,0 +1,707 @@
+Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports DocumentFormat.OpenXml.Drawing.Charts
+
+Partial Class Conv_Report_Area
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Dim strSupportingInfo As String = ""
+
+        Session("objConfig") = Nothing      'Required for all pages to start w/new object for each Page Call
+
+        Me.Master.SF._Security_Check_and_Setup(Page.GetType.Name.ToString)
+        Me.Master._Sub_Title = strSupportingInfo
+        Me.Master._ShowHide_Menu = True
+
+        'Call this function to set page security and audit tracking
+        Me.Master._Page_Setup(Page.GetType.Name.ToString, "Page_Load", strSupportingInfo, "Display")
+
+        Try
+            If Not IsPostBack() Then
+                ViewState("Action") = "ADD"
+                ViewState("SortColumn") = "ID"
+                ViewState("SortDirection") = "ASC"
+                ViewState("SortOrder") = ViewState("SortColumn") & " " & ViewState("SortDirection")
+                Display_Grid()
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+#Region " Custom Functions "
+
+    Private Sub Display_Grid()
+
+        Dim strSQL As String = String.Empty
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "Page_Load"
+
+
+        strSQL = " SELECT ID,PLANT,UNIT,WORKFORCE_HEADCOUNT_LOCATION,WORKFORCE_HEADCOUNT_FUNCTION " &
+                 " ,DEPARTMENT,ROUTINE,GROUP_NAME FROM report_area_conversion_rule"
+
+        Dim db As Database = Nothing
+        Dim cmd As DbCommand = Nothing
+        Dim ds As New DataSet
+        Dim DV As DataView = Nothing
+
+        Try
+            db = DatabaseFactory.CreateDatabase("DBRead_" & Me.Master.SF._RunningMode)
+
+            cmd = db.GetSqlStringCommand(strSQL)
+            db.LoadDataSet(cmd, ds, "MyTable")
+
+            If ds.Tables("MyTable").Rows.Count > 0 Then
+                DV = ds.Tables(0).DefaultView
+                If Not IsNothing(ViewState("SortOrder")) Then
+                    DV.Sort = ViewState("SortOrder")
+                End If
+                gvReportarea.DataSource = DV
+                gvReportarea.DataBind()
+            Else
+                gvReportarea.DataSource = Nothing
+                gvReportarea.DataBind()
+            End If
+
+        Catch ex As Exception
+            gvReportarea.DataSource = Nothing
+            gvReportarea.DataBind()
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            strErrorMessage &= Me.Master.SF.ConstructSQLCallString(cmd) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while displaying the Report_Area_Conversion Table values."
+        Finally
+            If Not IsNothing(DV) Then
+                DV.Dispose()
+                DV = Nothing
+            End If
+            If Not IsNothing(ds) Then
+                ds.Dispose()
+                ds = Nothing
+            End If
+            If Not IsNothing(cmd) Then
+                cmd.Dispose()
+                cmd = Nothing
+            End If
+            If Not IsNothing(db) Then
+                db = Nothing
+            End If
+        End Try
+
+    End Sub
+
+    Private Sub Delete_SeqLvl(ByVal strID As String)
+
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "Delete_SeqLvl_Code"
+        lblMessage.Text = ""
+
+        Dim strSQL As String = " DELETE  FROM report_area_conversion_rule " &
+                               " WHERE ID = @ID"
+
+        Dim db As Database = Nothing
+        Dim cmd As DbCommand = Nothing
+
+        Try
+
+            db = DatabaseFactory.CreateDatabase("DBUpdate_" & Me.Master.SF._RunningMode)
+            cmd = db.GetSqlStringCommand(strSQL)
+            db.AddInParameter(cmd, "ID", DbType.String, strID)
+
+
+            If db.ExecuteNonQuery(cmd) = 1 Then
+                'Success 
+
+                lblMessage.CssClass = "MessageGood"
+                lblMessage.Text = "Report Area Conversion Row deleted Successfully."
+            Else
+                'Fail                    
+            End If
+
+            cmd = Nothing
+            db = Nothing
+
+            ' Master.SF.Write_Audit_Trail(Page.GetType().Name, "Delete_SeqLvl_Security", "Delete_SeqLvl_Security", strSQL & " area_KEY = " & strAreaKey)
+
+        Catch ex As Exception
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            strErrorMessage &= Me.Master.SF.ConstructSQLCallString(cmd) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while deleting the record."
+        Finally
+            If Not IsNothing(cmd) Then
+                cmd.Dispose()
+                cmd = Nothing
+            End If
+            If Not IsNothing(db) Then
+                db = Nothing
+            End If
+        End Try
+    End Sub
+
+    Private Sub Clear_Entry_Fields()
+
+
+        txtPlant.Visible = True
+        txtUnit.Visible = True
+        txtLocation.Visible = True
+        txtFunction.Visible = True
+        txtDepartment.Visible = True
+        ddlRoutine.Visible = True
+        txtGroupName.Visible = True
+
+        txtPlant.Text = ""
+        txtPlant.Focus()
+
+        txtUnit.Text = ""
+        txtLocation.Text = ""
+        txtFunction.Text = ""
+        txtDepartment.Text = ""
+        txtGroupName.Text = ""
+
+        lblID.Text = ""
+        lblPlant.Text = ""
+        lblUnit.Text = ""
+        lblLocation.Text = ""
+        lblFunction.Text = ""
+        lblDepartment.Text = ""
+        lblRoutine.Text = ""
+        lblGroupName.Text = ""
+
+        lblID.Visible = False
+        lblPlant.Visible = False
+        lblUnit.Visible = False
+        lblLocation.Visible = False
+        lblFunction.Visible = False
+        lblDepartment.Visible = False
+        lblRoutine.Visible = False
+        lblGroupName.Visible = False
+
+
+        lblDate_Created.Text = ""
+        lblCreated_By.Text = ""
+        lblDate_Updated.Text = ""
+        lblUpdated_By.Text = ""
+
+        Reset_ForeColor_And_BackColor()
+
+        btAdd.Text = "Add"
+        ViewState("Action") = "ADD"
+
+    End Sub
+
+    Private Sub Reset_ForeColor_And_BackColor()
+
+        txtFunction.Visible = True
+        lblFunction.Visible = False
+        txtFunction.ForeColor = Drawing.Color.Black
+        txtFunction.BackColor = Drawing.Color.Empty
+
+        txtLocation.Visible = True
+        lblLocation.Visible = False
+        txtLocation.ForeColor = Drawing.Color.Black
+        txtLocation.BackColor = Drawing.Color.Empty
+
+
+        txtPlant.ForeColor = Drawing.Color.Black
+        txtPlant.BackColor = Drawing.Color.Empty
+
+        txtUnit.ForeColor = Drawing.Color.Black
+        txtUnit.BackColor = Drawing.Color.Empty
+
+        txtLocation.ForeColor = Drawing.Color.Black
+        txtLocation.BackColor = Drawing.Color.Empty
+
+        txtFunction.ForeColor = Drawing.Color.Black
+        txtFunction.BackColor = Drawing.Color.Empty
+
+        txtDepartment.ForeColor = Drawing.Color.Black
+        txtDepartment.BackColor = Drawing.Color.Empty
+
+        ddlRoutine.ForeColor = Drawing.Color.Black
+        ddlRoutine.BackColor = Drawing.Color.Empty
+
+        txtGroupName.ForeColor = Drawing.Color.Black
+        txtGroupName.BackColor = Drawing.Color.Empty
+
+
+    End Sub
+    Private Function Invalid_Input_Fields() As Boolean
+
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "Invalid_Input_Fields"
+        lblMessage.Text = ""
+
+        Dim strMessage As String = ""
+        Dim strSepErr As String = ""
+        Dim bError As Boolean = False
+
+        Try
+            If ViewState("Action") = "COPY" Or ViewState("Action") = "ADD" Or IsNothing(ViewState("Action")) Then
+                'Verify SeqLvl - it is required and must be unique.   
+                If ddlRoutine.Text.Trim.Length = 0 Then
+                    strMessage = strMessage & strSepErr & " <li type='square'>Routine required.</li>"
+                    strSepErr = "<br>"
+                    ddlRoutine.BackColor = Drawing.Color.Red
+                    ddlRoutine.ForeColor = Drawing.Color.Black
+                    bError = True
+                    ddlRoutine.Focus()
+                Else
+                    ddlRoutine.BackColor = Drawing.Color.Empty
+                    ddlRoutine.ForeColor = Drawing.Color.Empty
+                End If
+                If txtGroupName.Text.Trim.Length = 0 Then
+                    strMessage = strMessage & strSepErr & " <li type='square'>GroupName required.</li>"
+                    strSepErr = "<br>"
+                    txtGroupName.BackColor = Drawing.Color.Red
+                    txtGroupName.ForeColor = Drawing.Color.Black
+                    bError = True
+                    txtGroupName.Focus()
+                Else
+                    txtGroupName.BackColor = Drawing.Color.Empty
+                    txtGroupName.ForeColor = Drawing.Color.Empty
+                End If
+
+
+            Else
+            End If
+
+            If bError Then
+                lblMessage.Text = strMessage
+            End If
+
+            Return bError
+
+        Catch ex As Exception
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while validating Input Fields."
+            Return True
+        End Try
+
+    End Function
+#End Region
+
+
+    Protected Sub btAdd_Click(sender As Object, e As EventArgs) Handles btAdd.Click
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "btAdd_Click"
+        Dim strSQL As String = ""
+        Dim strTimeStamp As String = DateTime.Now()
+        Dim db As Database = Nothing
+        Dim cmd As DbCommand = Nothing
+
+        lblMessage.Text = ""
+
+        If Invalid_Input_Fields() Then
+            Exit Sub
+        End If
+
+        'removed market reference ranges, tao from query 2012-07-09 DG
+        If ViewState("Action") = "COPY" Or ViewState("Action") = "ADD" Or IsNothing(ViewState("Action")) Then
+
+            strSQL = " INSERT INTO report_area_conversion_rule " &
+                     "(PLANT,UNIT, WORKFORCE_HEADCOUNT_LOCATION, WORKFORCE_HEADCOUNT_FUNCTION," &
+                     " DEPARTMENT,ROUTINE,  " &
+                     " GROUP_NAME, " &
+                     " DATE_UPDATED, " &
+                     " UPDATED_BY, DATE_CREATED, CREATED_BY) " &
+                     " VALUES (@Plant, @Unit, @Location, @Function," &
+                     " @Dept, " &
+                     " @Routine, @Groupname, " &
+                     " @DATE_UPDATED, " &
+                     " @UPDATED_BY, @DATE_CREATED, @CREATED_BY) "
+
+        ElseIf ViewState("Action") = "EDIT" Then
+
+            strSQL = " UPDATE report_area_conversion_rule " &
+                     " Set GROUP_NAME = @GroupName, " &
+                     " ROUTINE = @Routine, " &
+                     " DATE_UPDATED = @Date_Updated, " &
+                     " UPDATED_BY = @Updated_By " &
+                     " WHERE ID = @id"
+        End If
+
+        Try
+
+            db = DatabaseFactory.CreateDatabase("DBUpdate_" & Me.Master.SF._RunningMode)
+            cmd = db.GetSqlStringCommand(strSQL)
+
+            If ViewState("Action") = "EDIT" Then
+                AddHandler gvReportarea.RowCommand, AddressOf Me.gvReportarea_RowCommand
+                db.AddInParameter(cmd, "id", DbType.String, lblID.Text)
+                db.AddInParameter(cmd, "Plant", DbType.String, txtPlant.Text)
+                db.AddInParameter(cmd, "Unit", DbType.String, txtUnit.Text)
+
+                db.AddInParameter(cmd, "Location", DbType.String, txtLocation.Text)
+                db.AddInParameter(cmd, "Function", DbType.String, txtFunction.Text)
+                db.AddInParameter(cmd, "Dept", DbType.String, txtDepartment.Text)
+                db.AddInParameter(cmd, "Routine", DbType.String, ddlRoutine.Text)
+                db.AddInParameter(cmd, "Groupname", DbType.String, txtGroupName.Text)
+
+
+            ElseIf ViewState("Action") = "ADD" Or ViewState("Action") = "COPY" Then
+                db.AddInParameter(cmd, "Plant", DbType.String, txtPlant.Text)
+                db.AddInParameter(cmd, "Unit", DbType.String, txtUnit.Text)
+                db.AddInParameter(cmd, "Location", DbType.String, txtLocation.Text)
+                db.AddInParameter(cmd, "Function", DbType.String, txtFunction.Text)
+                db.AddInParameter(cmd, "Dept", DbType.String, txtDepartment.Text)
+                db.AddInParameter(cmd, "Routine", DbType.String, ddlRoutine.Text)
+                db.AddInParameter(cmd, "GroupName", DbType.String, txtGroupName.Text)
+                db.AddInParameter(cmd, "Date_Created", DbType.DateTime, strTimeStamp)
+                db.AddInParameter(cmd, "Created_By", DbType.String, Session("UserID"))
+                db.AddInParameter(cmd, "ProgramCreated", DbType.String, Page.GetType().Name)
+
+            End If
+
+
+            db.AddInParameter(cmd, "Date_Updated", DbType.DateTime, strTimeStamp)
+            db.AddInParameter(cmd, "Updated_By", DbType.String, Session("UserID"))
+            db.AddInParameter(cmd, "ProgramUpdated", DbType.String, Page.GetType().Name)
+
+            If db.ExecuteNonQuery(cmd) = 1 Then
+                'Success
+                lblMessage.CssClass = "MessageGood"
+
+                lblID.Visible = True
+                lblDate_Updated.Text = strTimeStamp
+                lblUpdated_By.Text = Session("UserID")
+
+
+                If ViewState("Action") = "ADD" Then
+
+                    lblFunction.Text = txtFunction.Text
+                    txtFunction.Visible = False
+                    lblFunction.Visible = True
+
+                    lblLocation.Text = txtLocation.Text
+                    txtLocation.Visible = False
+                    lblLocation.Visible = True
+
+                    lblDepartment.Text = txtDepartment.Text
+                    txtDepartment.Visible = False
+                    lblDepartment.Visible = True
+
+                    lblPlant.Text = txtPlant.Text
+                    txtPlant.Visible = False
+                    lblPlant.Visible = True
+
+                    lblUnit.Text = txtUnit.Text
+                    txtUnit.Visible = False
+                    lblUnit.Visible = True
+
+                    lblGroupName.Text = txtGroupName.Text
+                    txtGroupName.Visible = False
+                    lblGroupName.Visible = True
+
+                    lblRoutine.Text = ddlRoutine.Text
+                    ddlRoutine.Visible = False
+                    lblRoutine.Visible = True
+
+
+                    lblDate_Created.Text = strTimeStamp
+                    lblCreated_By.Text = Session("UserID")
+                    lblMessage.Text = "Report Area row added Successfully."
+
+                ElseIf ViewState("Action") = "EDIT" Then
+                    lblGroupName.Text = txtGroupName.Text
+                    txtGroupName.Visible = False
+                    lblGroupName.Visible = True
+
+                    lblRoutine.Text = ddlRoutine.Text
+                    ddlRoutine.Visible = False
+                    lblRoutine.Visible = True
+
+                    lblMessage.Text = "Report Area row changed Successfully."
+
+                ElseIf ViewState("Action") = "COPY" Then
+                    lblFunction.Text = txtFunction.Text
+                    txtFunction.Visible = False
+                    lblFunction.Visible = True
+
+                    lblLocation.Text = txtLocation.Text
+                    txtLocation.Visible = False
+                    lblLocation.Visible = True
+
+                    lblDepartment.Text = txtDepartment.Text
+                    txtDepartment.Visible = False
+                    lblDepartment.Visible = True
+
+                    lblPlant.Text = txtPlant.Text
+                    txtPlant.Visible = False
+                    lblPlant.Visible = True
+
+                    lblUnit.Text = txtUnit.Text
+                    txtUnit.Visible = False
+                    lblUnit.Visible = True
+
+                    lblGroupName.Text = txtGroupName.Text
+                    txtGroupName.Visible = False
+                    lblGroupName.Visible = True
+
+                    lblRoutine.Text = ddlRoutine.Text
+                    ddlRoutine.Visible = False
+                    lblRoutine.Visible = True
+
+
+
+                    lblDate_Created.Text = strTimeStamp
+                    lblCreated_By.Text = Session("UserID")
+                    lblMessage.Text = "Report Area row copied Successfully."
+
+                End If
+
+                ViewState("Action") = "EDIT"
+                btAdd.Text = "Update"
+
+            Else
+                'Fail                    
+            End If
+
+            Display_Grid()
+
+            Master.SF.Write_Audit_Trail(Page.GetType().Name, "btAdd_Click", "btAdd_Click:" & " " & ViewState("Action"), strSQL & " " & lblMessage.Text)
+        Catch ex As Exception
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            strErrorMessage &= Me.Master.SF.ConstructSQLCallString(cmd) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while inserting new row. Please try again later."
+        Finally
+            If Not IsNothing(cmd) Then
+                cmd.Dispose()
+                cmd = Nothing
+            End If
+            If Not IsNothing(db) Then
+                db = Nothing
+            End If
+        End Try
+
+
+    End Sub
+
+    Protected Sub gvReportarea_Sorting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSortEventArgs) Handles gvReportarea.Sorting
+
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "gvArea_Sorting"
+
+        Try
+            If e.SortExpression.ToString = ViewState("SortColumn").ToString Then
+                If ViewState("SortDirection") = "ASC" Then
+                    ViewState("SortDirection") = "DESC"
+                ElseIf ViewState("SortDirection") = "DESC" Then
+                    ViewState("SortDirection") = "ASC"
+                End If
+            Else
+                ViewState("SortDirection") = "ASC"
+            End If
+
+            ViewState("SortColumn") = e.SortExpression
+            ViewState("SortOrder") = ViewState("SortColumn") & " " & ViewState("SortDirection")
+            Display_Grid()
+        Catch ex As Exception
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while doing sorting."
+        End Try
+
+    End Sub
+
+
+    Protected Sub gvReportarea_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gvReportarea.RowCommand
+        Dim strErrorMessage As String = String.Empty
+        Dim strRoutine As String = "gvSeqLvl_RowCommand"
+        Dim strSQL As String = ""
+        Dim strTimeStamp As String = DateTime.Now()
+
+
+
+        Try
+            If IsNumeric(e.CommandArgument) Then
+
+                Dim index As Integer = Convert.ToInt32(e.CommandArgument)
+                If e.CommandName = "Change" Then
+
+                    ViewState("Action") = "EDIT"
+                    btAdd.Text = "Update"
+
+                    lblID.Text = gvReportarea.Rows(index).Cells(4).Text
+
+                    txtGroupName.Text = gvReportarea.Rows(index).Cells(10).Text
+                    lblGroupName.Text = gvReportarea.Rows(index).Cells(10).Text
+
+                    ddlRoutine.Text = gvReportarea.Rows(index).Cells(9).Text
+                    lblRoutine.Text = gvReportarea.Rows(index).Cells(9).Text
+
+                    lblFunction.Text = gvReportarea.Rows(index).Cells(7).Text
+                    lblLocation.Text = gvReportarea.Rows(index).Cells(6).Text
+
+
+                    strSQL = " Select ID,PLANT,UNIT,WORKFORCE_HEADCOUNT_LOCATION,WORKFORCE_HEADCOUNT_FUNCTION,DEPARTMENT,ROUTINE,GROUP_NAME," &
+                                "CREATED_BY,DATE_CREATED,UPDATED_BY,DATE_UPDATED" &
+                                " FROM report_area_conversion_rule WHERE ID=@id"
+
+                    Dim db As Database = Nothing
+                    Dim cmd As DbCommand = Nothing
+                    Dim ds As New DataSet
+
+                    Try
+
+                        db = DatabaseFactory.CreateDatabase("DBRead_" & Me.Master.SF._RunningMode)
+                        cmd = db.GetSqlStringCommand(strSQL)
+
+                        db.AddInParameter(cmd, "id", DbType.String, gvReportarea.Rows(index).Cells(3).Text.Trim)
+                        db.LoadDataSet(cmd, ds, "MyTable")
+
+                        If ds.Tables("MyTable").Rows.Count > 0 Then
+                            For Each row As DataRow In ds.Tables("MyTable").Rows
+
+                                lblID.Text = row.Item("ID").ToString.Trim
+                                txtPlant.Text = row.Item("PLANT").ToString.Trim
+                                txtUnit.Text = row.Item("UNIT").ToString.Trim
+                                txtLocation.Text = row.Item("WORKFORCE_HEADCOUNT_LOCATION").ToString.Trim
+                                txtFunction.Text = row.Item("WORKFORCE_HEADCOUNT_FUNCTION").ToString.Trim
+                                txtDepartment.Text = row.Item("DEPARTMENT").ToString.Trim
+                                ddlRoutine.Text = row.Item("ROUTINE").ToString.Trim
+                                txtGroupName.Text = row.Item("GROUP_NAME").ToString.Trim
+
+                                lblID.Visible = True
+
+                                If txtPlant.Text.Length >= 1 Then
+                                    txtPlant.Visible = True
+                                    txtUnit.Visible = False
+                                    txtFunction.Visible = False
+                                    txtLocation.Visible = False
+                                End If
+                                If txtUnit.Text.Length >= 1 Then
+                                    txtPlant.Visible = False
+                                    txtUnit.Visible = True
+                                    txtFunction.Visible = False
+                                    txtLocation.Visible = False
+                                End If
+                                If txtLocation.Text.Length >= 1 Then
+                                    txtPlant.Visible = False
+                                    txtUnit.Visible = False
+                                    txtFunction.Visible = True
+                                    txtLocation.Visible = True
+                                End If
+                                If txtFunction.Text.Length >= 1 Then
+                                    txtPlant.Visible = False
+                                    txtUnit.Visible = True
+                                    txtFunction.Visible = True
+                                    txtLocation.Visible = False
+                                End If
+
+                                lblDate_Created.Text = row.Item("Date_Created").ToString
+                                lblCreated_By.Text = row.Item("Created_By").ToString
+                                lblDate_Updated.Text = row.Item("Date_Updated").ToString
+                                lblUpdated_By.Text = row.Item("Updated_By").ToString
+                                lblMessage.CssClass = "MessageGood"
+                                lblMessage.Text = "Report Area row Ready to be Changed."
+                                Reset_ForeColor_And_BackColor()
+
+                            Next
+                        Else
+                            lblMessage.Text = "An error occurred while processing grid change command. Please try again later."
+                        End If
+
+                    Catch ex As Exception
+                        Dim errInfo As ErrObject
+                        errInfo = Err()
+                        strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+                        strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+                        strErrorMessage &= Me.Master.SF.ConstructSQLCallString(cmd) & vbCrLf
+                        Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+                        lblMessage.Text = "An error occurred while processing grid change command. Please try again later."
+                    Finally
+                        If Not IsNothing(cmd) Then
+                            cmd.Dispose()
+                            cmd = Nothing
+                        End If
+                        If Not IsNothing(db) Then
+                            db = Nothing
+                        End If
+                    End Try
+
+                ElseIf e.CommandName = "Del" Then
+                    Delete_SeqLvl(gvReportarea.Rows(index).Cells(3).Text)
+                    Display_Grid()
+                    Clear_Entry_Fields()
+                    txtFunction.Focus()
+
+                ElseIf e.CommandName = "Copy" Then
+
+                    ViewState("Action") = "COPY"
+                    btAdd.Text = "Add"
+
+                    txtPlant.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(4).Text).Trim
+                    txtUnit.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(5).Text).Trim
+
+                    txtLocation.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(6).Text).Trim
+                    txtFunction.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(7).Text).Trim
+                    txtDepartment.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(8).Text).Trim
+                    ddlRoutine.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(9).Text).Trim
+                    txtGroupName.Text = Server.HtmlDecode(gvReportarea.Rows(index).Cells(10).Text).Trim
+
+
+                    lblPlant.Visible = False
+                    lblUnit.Visible = False
+                    lblLocation.Visible = False
+                    lblFunction.Visible = False
+                    lblDepartment.Visible = False
+                    lblRoutine.Visible = False
+                    lblGroupName.Visible = False
+
+                    txtPlant.Visible = True
+                    txtUnit.Visible = True
+                    txtLocation.Visible = True
+                    txtFunction.Visible = True
+                    txtDepartment.Visible = True
+                    ddlRoutine.Visible = True
+                    txtGroupName.Visible = True
+
+                    lblDate_Created.Text = strTimeStamp
+                    lblCreated_By.Text = Session("UserID")
+                    lblDate_Updated.Text = strTimeStamp
+                    lblUpdated_By.Text = Session("UserID")
+                    lblMessage.CssClass = "MessageGood"
+                    lblMessage.Text = "Values are Ready to be Entered."
+                    Reset_ForeColor_And_BackColor()
+
+                End If
+            End If
+
+        Catch ex As Exception
+            Dim errInfo As ErrObject
+            errInfo = Err()
+            strErrorMessage = "Unable to perform " & strRoutine & vbCrLf
+            strErrorMessage &= Right(ex.StackTrace.ToString, 500) & vbCrLf
+            Me.Master.SF.Write_Error_Log(Page.GetType().Name, strRoutine, errInfo.Number, ex.Message, strErrorMessage)
+            lblMessage.Text = "An error occurred while selecting the record."
+        End Try
+    End Sub
+
+
+    Protected Sub btCancel_Click(sender As Object, e As EventArgs) Handles btCancel.Click
+        Clear_Entry_Fields()
+    End Sub
+
+End Class
