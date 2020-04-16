@@ -1,0 +1,42 @@
+
+            Dim nonIntersectingHibbing = DictBaseID.Keys.Except(DictHibbingID.Keys)
+            Dim nonintersectingcount As Integer = DictBaseID.Keys.Except(DictHibbingID.Keys).Count
+            If nonintersectingcount > 0 Then
+                For Each nbr As Integer In nonIntersectingHibbing
+                    If Not listHibbingIDSkipped.Contains(nbr) Then
+                        If Not bolFirstRec Then
+                            HRWHLibrary.Write_LogFile(String.Format("Employees dropped from Hibbing file:"), "A", strLogFileName)
+                            HRWHLibrary.Write_LogFile(String.Format("Empl ID  First Name      Last Name            Status Code"), "A", strLogFileName)
+                            bolFirstRec = True
+                        End If
+                        value = DictBaseID.Where(Function(pair) pair.Key = nbr).Select(Function(pair) pair.Value).FirstOrDefault()
+                        HRWHLibrary.Write_LogFile(value, "A", strLogFileName)
+
+                    End If
+                Next
+            Else
+                HRWHLibrary.Write_LogFile(String.Format("No Hibbing Employees dropped"), "A ", strLogFileName)
+            End If
+            If Not bolFirstRec Then
+                HRWHLibrary.Write_LogFile(String.Format("No Hibbing Employees dropped"), "A", strLogFileName)
+            End If
+            'Find Hibbing employees not on HRWH_Base (new employee)
+            bolFirstRec = False
+            Dim nonIntersectingBase = DictHibbingID.Keys.Except(DictBaseID.Keys)
+            Dim nonintersectingbasecount As Integer = DictHibbingID.Keys.Except(DictBaseID.Keys).Count
+            If nonintersectingbasecount > 0 Then
+                For Each nbr As Integer In nonIntersectingBase
+                    If Not bolFirstRec Then
+                        HRWHLibrary.Write_LogFile(String.Format("New Employees:"), "A", strLogFileName)
+                        HRWHLibrary.Write_LogFile(String.Format("Empl ID  First Name      Last Name            Status Code Status Date Hire Date"), "A", strLogFileName)
+                        bolFirstRec = True
+                    End If
+                    value = DictHibbingID.Where(Function(pair) pair.Key = nbr).Select(Function(pair) pair.Value).FirstOrDefault()
+                    HRWHLibrary.Write_LogFile(value, "A", strLogFileName)
+                Next
+            Else
+                HRWHLibrary.Write_LogFile(String.Format("No New Employees"), "A", strLogFileName)
+            End If
+            If Not bolFirstRec And nonintersectingbasecount > 0 Then
+                HRWHLibrary.Write_LogFile(String.Format("No New Employees"), "A", strLogFileName)
+            End If
