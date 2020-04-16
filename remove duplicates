@@ -1,0 +1,32 @@
+  Public Function RemoveDuplicateRows(table As DataTable, DistinctColumn As String) As ArrayList
+        Try
+            Dim UniqueRecords As New ArrayList()
+            Dim DuplicateRecords As New ArrayList()
+            Dim duptable As DataTable = New DataTable
+            Dim alist As New ArrayList
+            Dim blist As New ArrayList
+
+            Dim ar As New ArrayList
+
+
+
+            For Each dRow As DataRow In table.Rows
+                If UniqueRecords.Contains(dRow(DistinctColumn).ToString().ToLower()) Then
+
+                    If dRow(DistinctColumn).ToString().ToLower().Trim().Length > 0 Then
+                        DuplicateRecords.Add(dRow).ToString().ToLower()
+                        If Not ar.Contains(dRow(DistinctColumn).ToString().ToLower().Trim()) Then
+                            ar.Add(dRow(DistinctColumn).ToString().ToLower().Trim())
+                        End If
+
+                    End If
+
+                Else
+                    UniqueRecords.Add(dRow(DistinctColumn).ToString().ToLower())
+                End If
+            Next
+            Return ar
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
