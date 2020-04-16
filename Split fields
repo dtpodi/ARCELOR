@@ -1,0 +1,47 @@
+  Private Function SplitFields(ByVal s As String, ByVal delimiter As String, ByVal fieldname As String) As String
+
+
+
+        Try
+            If s.ToString <> String.Empty Then
+                Dim words As String() = s.Split(New String() {delimiter},
+           StringSplitOptions.None)
+                For Each item As String In words
+
+                    If item.ToLower.Contains(fieldname.ToLower) Then
+                        Return item.Split(New String() {":"},
+                                            StringSplitOptions.None)(1)
+                    End If
+
+
+                Next item
+            End If
+
+
+
+        Catch ex As Exception
+        End Try
+
+        Return String.Empty
+    End Function
+
+    Private Function SplitFields2(ByVal s As String, ByVal delimiter As String, ByVal pos As Integer) As String
+
+        Try
+            If s.ToString <> String.Empty Then
+                If s.Contains(delimiter) Then
+                    Dim words As String() = s.Split(New String() {delimiter},
+                                       StringSplitOptions.None)
+
+                    Return words(pos)
+                Else
+                    Return s
+                End If
+
+            End If
+            Return String.Empty
+
+        Catch ex As Exception
+        End Try
+        Return String.Empty
+    End Function
