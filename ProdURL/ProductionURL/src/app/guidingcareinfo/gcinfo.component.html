@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+  <div class='card' >  
+    <div id="wrapper">
+      <div class='card-header text-center' id="w70">
+        <h1>{{pageTitle}}</h1>
+      </div>
+      <!-- <div class="image" id="w30"></div> -->
+    </div>
+    <div class='card-body'>
+      <div class='row center'>
+        <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-2'>
+        <input type="text" class="form-control form-rounded" placeholder="Client Name"
+                    [(ngModel)]='clientFilter'/>
+      </div>
+      </div>
+      <div class='table-responsive' >          
+            <table class='table' *ngIf='gcclientinfo.length'>            
+                <thead class="header">
+                  <tr>
+                    <th>Client Name</th>
+                    <th>QA</th>
+                    <th>UAT</th>
+                    <th>Training</th>
+                    <th>Prod</th>
+                  </tr>            
+                </thead>
+                <tbody> 
+                    <tr *ngFor='let gcclient of filteredClients'>
+                      <td>{{gcclient.clientName}}</td>
+                      <td>
+                          <a href="{{gcclient.QAurl}}">{{gcclient.clientName}}</a>
+                      </td>
+                      <td >{{gcclient.QA}}</td>
+                      <td>{{gcclient.clientName}}</td>
+                      <td>{{gcclient.clientName}}</td>
+                    </tr>          
+                </tbody>
+              </table>
+      </div>
+    </div>
+  </div>
+
+  </html>
+

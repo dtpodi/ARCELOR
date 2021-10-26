@@ -1,0 +1,20 @@
+[
+  {
+    "clientid": 1,
+    "clientName": "BCBSAZ",
+    "QA": "testqaurl",
+    "QAurl": "https://cfmd-qa.guidingcare.com/Portal/",
+    "UAT": "testuaturl",
+    "Training": "testtrainingurl",
+    "Prod": "testprodurl"
+  },
+  {
+    "clientid": 2,
+    "clientName": "BCBSNE",
+    "QA": "testqaurl",
+    "QAurl": "",
+    "UAT": "testuaturl",
+    "Training": "testtrainingurl",
+    "Prod": "testprodurl"
+  }
+]

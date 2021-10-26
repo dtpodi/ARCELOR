@@ -1,0 +1,5 @@
+{
+  "files.autoSave": "afterDelay",
+  "html.format.wrapAttributes": "force-aligned",
+  "css.lint.emptyRules": "ignore"
+}
