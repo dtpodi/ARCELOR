@@ -1,0 +1,1159 @@
+{
+  "Aloha": {
+    "Training": [
+      {
+        "url": https: //alo-trn.guidingcare.com/Portal/version.html,
+        "abbr": "alo-trn",
+        "error": "Access_denied"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //alo-qa.guidingcare.com/Portal/version.html,
+        "abbr": "alo-qa",
+        "error": "Access_denied"
+      },
+      {
+        "url": https: //alo-qa.guidingcare.com/R1/Portal/version.html,
+        "abbr": "alo-qa",
+        "version": "v8.13.4.50",
+        "date": "08/05/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //alo-pp.guidingcare.com/Portal/version.html,
+        "abbr": "alo-pp",
+        "version": "v8.13.4.50",
+        "date": "08/11/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //alo.guidingcare.com/portal/version.html,
+        "abbr": "alo",
+        "version": "v8.13.4.50",
+        "date": "08/15/2021"
+      }
+    ]
+  },
+  "Altus": {
+    "Training": [
+      {
+        "url": https: //alt-trn.guidingcare.com/Portal/version.html,
+        "abbr": "alt-trn",
+        "version": "v8.8.0.40",
+        "date": "08/20/2019"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //alt-qa.guidingcare.com/Portal/version.html,
+        "abbr": "alt-qa",
+        "version": "v8.8.0.40",
+        "date": "08/20/2019"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //alt-uat.guidingcare.com/Portal/version.html,
+        "abbr": "alt-uat",
+        "version": "8.8.0.66",
+        "date": "08/05/2020"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //alt.guidingcare.com/portal/version.html,
+        "abbr": "alt",
+        "version": "v8.8.0.66",
+        "date": "08/14/2020"
+      }
+    ]
+  },
+  "Avera": {
+    "QA": [
+      {
+        "url": https: //avr-qa.guidingcare.com/Portal/version.html,
+        "abbr": "avr-qa",
+        "version": "v8.14.0.34",
+        "date": "10/04/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //avr-pp.guidingcare.com/Portal/version.html,
+        "abbr": "avr-pp",
+        "version": "v8.14.0.34",
+        "date": "10/05/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //avr.guidingcare.com/portal/version.html,
+        "abbr": "avr",
+        "version": "v8.14.0.34",
+        "date": "10/06/2021"
+      }
+    ]
+  },
+  "BCBS AZ": {
+    "Training": [
+      {
+        "url": https: //baz-trn.guidingcare.com/Portal/version.html,
+        "abbr": "baz-trn",
+        "version": "v8.13.2.57",
+        "date": "08/26/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //baz-qa.guidingcare.com/Portal/version.html,
+        "abbr": "baz-qa",
+        "version": "v8.13.2.66",
+        "date": "09/29/2021"
+      },
+      {
+        "url": https: //baz-qa1.guidingcare.com/Portal/version.html,
+        "abbr": "baz-qa1",
+        "version": "v8.11.50.51",
+        "date": "07/30/2020"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //baz-uat.guidingcare.com/portal/version.html,
+        "abbr": "baz-uat",
+        "version": "v8.13.2.66",
+        "date": "10/13/2021"
+      },
+      {
+        "url": https: //baz-uat1.guidingcare.com/Portal/version.html,
+        "abbr": "baz-uat1",
+        "version": "v8.13.2.66",
+        "date": "10/23/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //baz.guidingcare.com/portal/version.html,
+        "abbr": "baz",
+        "version": "v8.13.2.66",
+        "date": "10/20/2021"
+      }
+    ]
+  },
+  "BCBS KC": {
+    "Training": [
+      {
+        "url": https: //bkc-trn.guidingcare.com/Portal/version.html,
+        "abbr": "bkc-trn",
+        "version": "v8.14.0.17",
+        "date": "06/02/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //bkc-qa.guidingcare.com/Portal/version.html,
+        "abbr": "bkc-qa",
+        "version": "v8.12.0.23",
+        "date": "05/26/2020"
+      },
+      {
+        "url": https: //bkc-qa.guidingcare.com/R1/Portal/version.html,
+        "abbr": "bkc-qa",
+        "version": "v8.13.4.61",
+        "date": "10/12/2021"
+      },
+      {
+        "url": https: //bkc-qa.guidingcare.com/R2/Portal/version.html,
+        "abbr": "bkc-qa",
+        "version": "v8.15.0.19",
+        "date": "10/05/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //bkc-pp.guidingcare.com/Portal/version.html,
+        "abbr": "bkc-pp",
+        "version": "v8.12.0.23",
+        "date": "05/29/2020"
+      },
+      {
+        "url": https: //bkc-pp.guidingcare.com/R1/Portal/version.html,
+        "abbr": "bkc-pp",
+        "version": "v8.13.4.61",
+        "date": "10/19/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //bkc.guidingcare.com/portal/version.html,
+        "abbr": "bkc",
+        "version": "v8.13.4.61",
+        "date": "10/25/2021"
+      }
+    ]
+  },
+  "BCBS Nebraska": {
+    "Training": [
+      {
+        "url": https: //bcne-trn.guidingcare.com/Portal/version.html,
+        "abbr": "bcne-trn",
+        "version": "v8.13.4.24",
+        "date": "02/22/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //bcne-qa.guidingcare.com/Portal/version.html,
+        "abbr": "bcne-qa",
+        "version": "v8.13.4.50",
+        "date": "08/03/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //bcne-pp.guidingcare.com/Portal/version.html,
+        "abbr": "bcne-pp",
+        "version": "v8.13.4.50",
+        "date": "08/05/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //bcne.guidingcare.com/portal/version.html,
+        "abbr": "bcne",
+        "version": "v8.13.4.50",
+        "date": "08/12/2021"
+      }
+    ]
+  },
+  "CalOptima": {
+    "Training": [
+      {
+        "url": https: //cop-trn.guidingcare.com/Portal/version.html,
+        "abbr": "cop-trn",
+        "version": "v8.12.0.15",
+        "date": "04/02/2020"
+      },
+      {
+        "url": https: //cop-trn2.guidingcare.com/Portal/version.html,
+        "abbr": "cop-trn2",
+        "version": "v8.13.2.43",
+        "date": "09/22/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //cop-qa.guidingcare.com/Portal/version.html,
+        "abbr": "cop-qa",
+        "error": "Not_found"
+      },
+      {
+        "url": https: //cop-qa2.guidingcare.com/Portal/version.html,
+        "abbr": "cop-qa2",
+        "version": "v8.13.2.69",
+        "date": "10/19/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //cop-pp2.guidingcare.com/Portal/version.html,
+        "abbr": "cop-pp2",
+        "version": "v8.13.2.69",
+        "date": "10/25/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //caloptima.guidingcare.com/Portal/version.html,
+        "abbr": "caloptima",
+        "version": "v8.13.2.43",
+        "date": "09/25/2021"
+      }
+    ]
+  },
+  "Cardinal": {
+    "Training": [
+      {
+        "url": https: //cdl-trn.guidingcare.com/Portal/version.html,
+        "abbr": "cdl-trn",
+        "version": "v8.14.0.20",
+        "date": "06/25/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //cdl-qa.guidingcare.com/Portal/version.html,
+        "abbr": "cdl-qa",
+        "version": "v8.14.0.35",
+        "date": "10/12/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //cdl-pp.guidingcare.com/Portal/version.html,
+        "abbr": "cdl-pp",
+        "version": "v8.14.0.35",
+        "date": "10/23/2021"
+      },
+      {
+        "url": https: //cdl-pp.guidingcare.com/R1/Portal/version.html,
+        "abbr": "cdl-pp",
+        "version": "v8.14.0.9",
+        "date": "04/09/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //cdl.guidingcare.com/portal/version.html,
+        "abbr": "cdl",
+        "version": "v8.14.0.30",
+        "date": "09/24/2021"
+      }
+    ]
+  },
+  "CareFirst": {
+    "Training": [
+      {
+        "url": https: //cfmd-trn.guidingcare.com/portal/version.html,
+        "abbr": "cfmd-trn",
+        "version": "v8.13.4.12",
+        "date": "11/09/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //cfmd-qa.guidingcare.com/portal/version.html,
+        "abbr": "cfmd-qa",
+        "version": "v8.16.0.6",
+        "date": "10/13/2021"
+      },
+      {
+        "url": https: //cfmd-qa.guidingcare.com/R1/portal/version.html,
+        "abbr": "cfmd-qa",
+        "version": "v8.14.0.18",
+        "date": "06/14/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //cfmd-pp.guidingcare.com/Portal/version.html,
+        "abbr": "cfmd-pp",
+        "version": "v8.16.0.6",
+        "date": "10/14/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //cfmd.guidingcare.com/portal/version.html,
+        "abbr": "cfmd",
+        "version": "v8.16.0.6",
+        "date": "10/23/2021"
+      }
+    ]
+  },
+  "CareSource": {
+    "Training": [
+      {
+        "url": https: //csc-trn.guidingcare.com/Portal/version.html,
+        "abbr": "csc-trn",
+        "version": "v8.15.0.17",
+        "date": "18/10/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //csc-qa.guidingcare.com/CBH/version.html,
+        "abbr": "csc-qa",
+        "version": "v8.15.0.22",
+        "date": "10/20/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //csc-pp.guidingcare.com/Portal/version.html,
+        "abbr": "csc-pp",
+        "version": "v8.15.0.22",
+        "date": "10/22/2021"
+      },
+      {
+        "url": https: //csc-pp.guidingcare.com/Preprod2/version.html,
+        "abbr": "csc-pp",
+        "version": "v8.15.0.17",
+        "date": "10/05/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //csc.guidingcare.com/portal/version.html,
+        "abbr": "csc",
+        "version": "v8.15.0.17",
+        "date": "10/09/2021"
+      }
+    ]
+  },
+  "CCA": {
+    "Training": [
+      {
+        "url": https: //cca-trn.guidingcare.com/Portal/version.html,
+        "abbr": "cca-trn",
+        "version": "v8.13.2.30",
+        "date": "01/28/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //cca-qa.guidingcare.com/QA2/Portal/version.html,
+        "abbr": "cca-qa",
+        "version": "v8.13.2.64",
+        "date": "10/11/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //cca-pp.guidingcare.com/Portal/version.html,
+        "abbr": "cca-pp",
+        "version": "v8.13.2.64",
+        "date": "10/14/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //cca.guidingcare.com/portal/version.html,
+        "abbr": "cca",
+        "version": "v8.13.2.62",
+        "date": "10/04/2021"
+      }
+    ]
+  },
+  "CHNCT": {
+    "Training": [
+      {
+        "url": https: //cnt-trn.guidingcare.com/Portal/version.html,
+        "abbr": "cnt-trn",
+        "version": "v8.12.0.58",
+        "date": "02/01/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //cnt-qa.guidingcare.com/Portal/version.html,
+        "abbr": "cnt-qa",
+        "version": "v8.12.0.95",
+        "date": "10/14/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //cnt-pp1.guidingcare.com/Portal/version.html,
+        "abbr": "cnt-pp1",
+        "version": "v8.12.0.59",
+        "date": "02/02/2021"
+      },
+      {
+        "url": https: //cnt-pp2.guidingcare.com/Portal/version.html,
+        "abbr": "cnt-pp2",
+        "version": "v8.12.0.95",
+        "date": "10/19/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //cnt.guidingcare.com/portal/version.html,
+        "abbr": "cnt",
+        "version": "v8.12.0.95",
+        "date": "10/20/2021"
+      }
+    ]
+  },
+  "Colorado Access": {
+    "Training": [
+      {
+        "url": https: //coa-trn.guidingcare.com/Portal/version.html,
+        "abbr": "coa-trn",
+        "version": "v8.13.4.26",
+        "date": "04/22/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //coa-qa2.guidingcare.com/Portal/version.html,
+        "abbr": "coa-qa2",
+        "version": "v8.13.4.56",
+        "date": "09/08/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //coa-pp2.guidingcare.com/Portal/version.html,
+        "abbr": "coa-pp2",
+        "version": "v8.13.4.60",
+        "date": "10/05/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //coa.guidingcare.com/portal/version.html,
+        "abbr": "coa",
+        "version": "v8.13.4.60",
+        "date": "10/14/2021"
+      }
+    ]
+  },
+  "DHMP": {
+    "Training": [
+      {
+        "url": https: //dhmp-trn.guidingcare.com/Portal/version.html,
+        "abbr": "dhmp-trn",
+        "version": "v8.11.0.M01",
+        "date": "10/30/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //dhmp-qa.guidingcare.com/Portal/version.html,
+        "abbr": "dhmp-qa",
+        "version": "v8.11.0.M01",
+        "date": "10/12/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //dhmp-pp.guidingcare.com/Portal/version.html,
+        "abbr": "dhmp-pp",
+        "version": "v8.11.0.M01",
+        "date": "10/18/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //dhmp.guidingcare.com/portal/version.html,
+        "abbr": "dhmp",
+        "version": "v8.11.0.M01",
+        "date": "10/19/2021"
+      }
+    ]
+  },
+  "East Point": {
+    "Training": [
+      {
+        "url": https: //ept-trn.guidingcare.com/Portal/version.html,
+        "abbr": "ept-trn",
+        "version": "v8.12.0.20",
+        "date": "04/28/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //ept-qa.guidingcare.com/Portal/version.html,
+        "abbr": "ept-qa",
+        "version": "v8.16.0.7",
+        "date": "10/24/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //ept-pp.guidingcare.com/Portal/version.html,
+        "abbr": "ept-pp",
+        "version": "V8.12.0.91",
+        "date": "09/15/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //ept.guidingcare.com/portal/version.html,
+        "abbr": "ept",
+        "version": "v8.12.0.91",
+        "date": "09/20/2021"
+      }
+    ]
+  },
+  "Elder Plan": {
+    "Training": [
+      {
+        "url": https: //eld-trn.guidingcare.com/Portal/version.html,
+        "abbr": "eld-trn",
+        "version": "v8.12.0.52",
+        "date": "12/22/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //eld-qa.guidingcare.com/Portal/version.html,
+        "abbr": "eld-qa",
+        "version": "v8.12.0.59",
+        "date": "02/02/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //eld-pp.guidingcare.com/Portal/version.html,
+        "abbr": "eld-pp",
+        "version": "v8.12.0.95",
+        "date": "10/12/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //eldp.guidingcare.com/portal/version.html,
+        "abbr": "eldp",
+        "version": "v8.12.0.95",
+        "date": "10/19/2021"
+      }
+    ]
+  },
+  "Hamaspik": {
+    "Training": [
+      {
+        "url": https: //hmk-trn.guidingcare.com/Portal/version.html,
+        "abbr": "hmk-trn",
+        "version": "v8.9.0.15",
+        "date": "03/07/2019"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //hmk-qa.guidingcare.com/Portal/version.html,
+        "abbr": "hmk-qa",
+        "version": "V8.10.2.10",
+        "date": "06/11/2019"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hmk-uat.guidingcare.com/Portal/version.html,
+        "abbr": "hmk-uat",
+        "version": "V8.10.4.115",
+        "date": "09/28/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //hmk.guidingcare.com/portal/version.html,
+        "abbr": "hmk",
+        "version": "V8.10.4.115",
+        "date": "10/05/2021"
+      }
+    ]
+  },
+  "HCSC": {
+    "Training": [
+      {
+        "url": https: //hcs-trn.guidingcare.com/Portal/version.html,
+        "abbr": "hcs-trn",
+        "version": "8.13.2.65",
+        "date": "10/20/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //hcs-qa.guidingcare.com/Portal/version.html,
+        "abbr": "hcs-qa",
+        "version": "v8.15.0.21",
+        "date": "10/19/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hcs-uat.guidingcare.com/Portal/version.html,
+        "abbr": "hcs-uat",
+        "version": "v8.13.2.65",
+        "date": "09/20/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //hcs.guidingcare.com/PROD/version.html,
+        "abbr": "hcs",
+        "version": "v8.13.2.65",
+        "date": "09/29/2021"
+      }
+    ]
+  },
+  "Health Alliance": {
+    "Training": [
+      {
+        "url": https: //hac-trn.guidingcare.com/Portal/version.html,
+        "abbr": "hac-trn",
+        "version": "release/v8.14.0.17",
+        "date": "06/08/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //hac-qa2.guidingcare.com/Portal/version.html,
+        "abbr": "hac-qa2",
+        "version": "v8.14.0.35",
+        "date": "10/08/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hac-pp2.guidingcare.com/Portal/version.html,
+        "abbr": "hac-pp2",
+        "version": "v8.14.0.35",
+        "date": "10/11/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //hac.guidingcare.com/portal/version.html,
+        "abbr": "hac",
+        "version": "v8.14.0.31",
+        "date": "09/14/2021"
+      }
+    ]
+  },
+  "HighMark (Not live)": {
+    "Training": [
+      {
+        "url": https: //hho-trn.guidingcare.com/Portal/version.html,
+        "abbr": "hho-trn",
+        "version": "v8.14.0.35",
+        "date": "10/07/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //hho-qa.guidingcare.com/Portal/version.html,
+        "abbr": "hho-qa",
+        "version": "v8.14.0.35",
+        "date": "10/13/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hho-uat.guidingcare.com/Portal/version.html,
+        "abbr": "hho-uat",
+        "version": "v8.14.0.35",
+        "date": "10/14/2021"
+      },
+      {
+        "url": https: //hho-pp.guidingcare.com/Portal/version.html,
+        "abbr": "hho-pp",
+        "version": "v8.14.0.35",
+        "date": "10/08/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //hho.guidingcare.com/portal/version.html,
+        "abbr": "hho",
+        "version": "v8.14.0.35",
+        "date": "10/11/2021"
+      }
+    ]
+  },
+  "Humana": {
+    "QA": [
+      {
+        "url": https: //HMNA-QA.guidingcare.com/Portal/version.html,
+        "abbr": "HMNA-QA",
+        "error": "Service_Unavailable"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hmna-pp.guidingcare.com/Portal/version.html,
+        "abbr": "hmna-pp",
+        "version": "v8.15.0.18",
+        "date": "09/22/2021"
+      }
+    ]
+  },
+  "iCircle": {
+    "Training": [
+      {
+        "url": https: //ice-trn.guidingcare.com/R1/Portal/version.html,
+        "abbr": "ice-trn",
+        "version": "v8.13.4.32",
+        "date": "03/31/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //ice-qa.guidingcare.com/Portal/version.html,
+        "abbr": "ice-qa",
+        "version": "v8.10.4.30",
+        "date": "12/02/2019"
+      },
+      {
+        "url": https: //ice-qa.guidingcare.com/R1/Portal/version.html,
+        "abbr": "ice-qa",
+        "version": "v8.13.4.60",
+        "date": "10/11/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //ice-uat.guidingcare.com/Portal/version.html,
+        "abbr": "ice-uat",
+        "version": "V8.10.4.30",
+        "date": "12/02/2019"
+      },
+      {
+        "url": https: //ice-uat.guidingcare.com/R1/Portal/version.html,
+        "abbr": "ice-uat",
+        "version": "V8.13.4.50",
+        "date": "08/09/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //ice.guidingcare.com/portal/version.html,
+        "abbr": "ice",
+        "version": "v8.13.4.50",
+        "date": "08/18/2021"
+      }
+    ]
+  },
+  "Medica": {
+    "Training": [
+      {
+        "url": https: //mdc-trn.guidingcare.com/Portal/version.html,
+        "abbr": "mdc-trn",
+        "version": "v8.11.50.95",
+        "date": "07/29/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //mdc-qa.guidingcare.com/Portal/version.html,
+        "abbr": "mdc-qa",
+        "version": "v8.15.0.22",
+        "date": "10/20/2021"
+      },
+      {
+        "url": https: //mdc-qa.guidingcare.com/R2/Portal/version.html,
+        "abbr": "mdc-qa",
+        "version": "v8.11.50.23",
+        "date": "02/03/2020"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //mdc-pp.guidingcare.com/Portal/version.html,
+        "abbr": "mdc-pp",
+        "version": "v8.15.0.16",
+        "date": "09/09/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //mdc.guidingcare.com/portal/version.html,
+        "abbr": "mdc",
+        "version": "v8.15.0.16",
+        "date": "09/15/2021"
+      }
+    ]
+  },
+  "MedStar (Not live)": {
+    "QA": [
+      {
+        "url": https: //msfc-qa.guidingcare.com/Portal/version.html,
+        "abbr": "msfc-qa",
+        "version": "v8.15.0.22",
+        "date": "10/22/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //msfc-pp.guidingcare.com/Portal/version.html,
+        "abbr": "msfc-pp",
+        "version": "v8.15.0.22",
+        "date": "10/25/2021"
+      }
+    ]
+  },
+  "Optum - El Paso": {
+    "Training": [
+      {
+        "url": https: //elp-trn.guidingcare.com/Portal/version.html,
+        "abbr": "elp-trn",
+        "version": "8.10.4.47",
+        "date": "04/03/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //elp-qa.guidingcare.com/Portal/version.html,
+        "abbr": "elp-qa",
+        "version": "8.10.4.51",
+        "date": "04/29/2020"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //elp-uat.guidingcare.com/Portal/version.html,
+        "abbr": "elp-uat",
+        "version": "8.10.4.57",
+        "date": "06/09/2020"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //elp.guidingcare.com/portal/version.html,
+        "abbr": "elp",
+        "version": "8.10.4.57",
+        "date": "06/15/2020"
+      }
+    ]
+  },
+  "Optum - THPWV": {
+    "Training": [
+      {
+        "url": https: //hpwv-trn.guidingcare.com/Portal/version.html,
+        "abbr": "hpwv-trn",
+        "version": "v8.12.0.47",
+        "date": "11/12/2020"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //hpwv-qa.guidingcare.com/Portal/version.html,
+        "abbr": "hpwv-qa",
+        "version": "v8.12.0.95",
+        "date": "10/14/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //hpwv-pp.guidingcare.com/Portal/version.html,
+        "abbr": "hpwv-pp",
+        "version": "v8.12.0.95",
+        "date": "10/18/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //hpwv.guidingcare.com/portal/version.html,
+        "abbr": "hpwv",
+        "version": "v8.12.0.95",
+        "date": "10/19/2021"
+      }
+    ]
+  },
+  "Priority Health": {
+    "Training": [
+      {
+        "url": https: //pyh-trn.guidingcare.com/Portal/version.html,
+        "abbr": "pyh-trn",
+        "version": "v8.10.4.110",
+        "date": "07/21/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //pyh-qa.guidingcare.com/Portal/version.html,
+        "abbr": "pyh-qa",
+        "version": "v8.14.0.33",
+        "date": "09/22/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //pyh-uat.guidingcare.com/Portal/version.html,
+        "abbr": "pyh-uat",
+        "version": "v8.14.0.33",
+        "date": "09/23/2021"
+      },
+      {
+        "url": https: //pyh-pp.guidingcare.com/Portal/version.html,
+        "abbr": "pyh-pp",
+        "version": "v8.14.0.33",
+        "date": "09/24/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //pyh.guidingcare.com/portal/version.html,
+        "abbr": "pyh",
+        "version": "v8.14.0.33",
+        "date": "10/18/2021"
+      }
+    ]
+  },
+  "UCare": {
+    "Training": [
+      {
+        "url": https: //ucr-trn.guidingcare.com/Portal/version.html,
+        "abbr": "ucr-trn",
+        "version": "v8.10.4.84",
+        "date": "03/11/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //ucare-qa.guidingcare.com/Portal/version.html,
+        "abbr": "ucare-qa",
+        "error": "Page_missing"
+      },
+      {
+        "url": https: //ucr-qa.guidingcare.com/R1/Portal/version.html,
+        "abbr": "ucr-qa",
+        "version": "v8.15.0.18",
+        "date": "09/28/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //ucr-uat.guidingcare.com/Portal/version.html,
+        "abbr": "ucr-uat",
+        "version": "v8.10.4.34",
+        "date": "12/31/2019"
+      },
+      {
+        "url": https: //ucr-pp.guidingcare.com/Portal/version.html,
+        "abbr": "ucr-pp",
+        "version": "v8.10.4.113",
+        "date": "08/20/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //ucr.guidingcare.com/portal/version.html,
+        "abbr": "ucr",
+        "version": "v8.10.4.113",
+        "date": "08/27/2021"
+      }
+    ]
+  },
+  "United": {
+    "Training": [
+      {
+        "url": https: //uhg-trn.guidingcare.com/Portal/version.html,
+        "abbr": "uhg-trn",
+        "version": "v8.11.4.94",
+        "date": "06/11/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //uhg-qa3.guidingcare.com/Portal/version.html,
+        "abbr": "uhg-qa3",
+        "version": "v8.15.0.17",
+        "date": "10/14/2021"
+      },
+      {
+        "url": https: //uniteddemo.guidingcare.com/QAUHG/version.html,
+        "abbr": "uniteddemo",
+        "version": "v8.11.4.99",
+        "date": "08/09/2021"
+      },
+      {
+        "url": https: //uhg-qa2.guidingcare.com/Portal/version.html,
+        "abbr": "uhg-qa2",
+        "version": "v8.11.4.73.UHC",
+        "date": "03/02/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //uhg-pp.guidingcare.com/Portal/version.html,
+        "abbr": "uhg-pp",
+        "version": "v8.15.0.16",
+        "date": "10/12/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //uhg.guidingcare.com/communitycare/portal/version.html,
+        "abbr": "uhg",
+        "version": "v8.15.0.16",
+        "date": "10/18/2021"
+      }
+    ]
+  },
+  "UPHP": {
+    "Training": [
+      {
+        "url": https: //uph-trn.guidingcare.com/Portal/version.html,
+        "abbr": "uph-trn",
+        "version": "v8.14.0.14",
+        "date": "05/11/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //uph-qa.guidingcare.com/Portal/version.html,
+        "abbr": "uph-qa",
+        "version": "v8.8.0.25",
+        "date": "04/02/2019"
+      },
+      {
+        "url": https: //uph-qa2.guidingcare.com/Portal/version.html,
+        "abbr": "uph-qa2",
+        "version": "v8.14.0.28",
+        "date": "08/18/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //uph-pp2.guidingcare.com/Portal/version.html,
+        "abbr": "uph-pp2",
+        "version": "V8.14.0.36",
+        "date": "10/13/2021"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //uphp.guidingcare.com/portal/version.html,
+        "abbr": "uphp",
+        "version": "v8.14.0.36",
+        "date": "10/19/2021"
+      }
+    ]
+  },
+  "VillageCare (Not live)": {
+    "QA": [
+      {
+        "url": https: //vcm-qa.guidingcare.com/Portal/version.html,
+        "abbr": "vcm-qa",
+        "version": "v8.15.0.22",
+        "date": "10/20/2021"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //vcm-pp.guidingcare.com/Portal/version.html,
+        "abbr": "vcm-pp",
+        "version": "v8.15.0.22",
+        "date": "10/21/2021"
+      }
+    ]
+  },
+  "VNSNY": {
+    "Training": [
+      {
+        "url": https: //vns-trn.guidingcare.com/Portal/version.html,
+        "abbr": "vns-trn",
+        "version": "v8.12.0.94",
+        "date": "10/25/2021"
+      }
+    ],
+    "QA": [
+      {
+        "url": https: //vns-qa.guidingcare.com/Portal/version.html,
+        "abbr": "vns-qa",
+        "error": "Access_denied"
+      }
+    ],
+    "UAT": [
+      {
+        "url": https: //vns-pp.guidingcare.com/Portal/version.html,
+        "abbr": "vns-pp",
+        "error": "Access_denied"
+      }
+    ],
+    "PROD": [
+      {
+        "url": https: //vns.guidingcare.com/portal/version.html,
+        "abbr": "vns",
+        "version": "v8.12.0.90",
+        "date": "09/17/2021"
+      }
+    ]
+  }
+}
